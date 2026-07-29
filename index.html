@@ -723,10 +723,6 @@
 
     <input type="hidden" id="jloName">
     <div class="field">
-      <label>Company Name</label>
-      <input type="text" id="brokerCompany" placeholder="Broker company name">
-    </div>
-    <div class="field">
       <label>Broker Name</label>
       <input type="text" id="brokerContactName" placeholder="Broker full name">
     </div>
@@ -1181,7 +1177,7 @@ function generateTermSheet() {
   if(g('ts-lophone')) g('ts-lophone').textContent = (g('loPhone') && g('loPhone').value) ? g('loPhone').value : '';
   if(g('ts-loemail')) g('ts-loemail').textContent = g('loEmail') && g('loEmail').value ? g('loEmail').value : '';
   // Broker Name -- shows in its own row, separate from JLO
-  const brokerInput = g('brokerCompany') && g('brokerCompany').value ? g('brokerCompany').value : '';
+  const brokerInput = g('brokerNameInput') && g('brokerNameInput').value ? g('brokerNameInput').value : '';
   if(g('ts-broker-section')) g('ts-broker-section').style.display = brokerInput ? 'table-row' : 'none';
   if(g('ts-broker-grid')) g('ts-broker-grid').style.display = brokerInput ? 'block' : 'none';
   if(g('ts-brokername-grid')) g('ts-brokername-grid').textContent = brokerInput;
