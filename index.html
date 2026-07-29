@@ -1181,7 +1181,7 @@ function generateTermSheet() {
   if(g('ts-lophone')) g('ts-lophone').textContent = (g('loPhone') && g('loPhone').value) ? g('loPhone').value : '';
   if(g('ts-loemail')) g('ts-loemail').textContent = g('loEmail') && g('loEmail').value ? g('loEmail').value : '';
   // Broker Name -- shows in its own row, separate from JLO
-  const brokerInput = g('brokerNameInput') && g('brokerNameInput').value ? g('brokerNameInput').value : '';
+  const brokerInput = g('brokerCompany') && g('brokerCompany').value ? g('brokerCompany').value : '';
   if(g('ts-broker-section')) g('ts-broker-section').style.display = brokerInput ? 'table-row' : 'none';
   if(g('ts-broker-grid')) g('ts-broker-grid').style.display = brokerInput ? 'block' : 'none';
   if(g('ts-brokername-grid')) g('ts-brokername-grid').textContent = brokerInput;
