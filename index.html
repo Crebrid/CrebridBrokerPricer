@@ -538,6 +538,21 @@
       </select>
     </div>
     <div class="field">
+      <label>1st Rental Property?</label>
+      <select id="firstRental">
+        <option value="">-- Select --</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Listed for Sale?</label>
+      <select id="listedSale">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+    <div class="field">
       <label>Seasoning <span style="color:#CC3333;font-size:10px;">(required)</span></label>
       <select id="seasoning" onchange="calculate()">
         <option value="">-- Select --</option>
@@ -893,7 +908,15 @@
         </div>
         <div>
           <div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#1B2A47;margin-bottom:3px;">Prepared By</div>
-          <div style="font-size:14px;font-weight:700;color:#1A1A1A;" id="ts-pricedby">—</div>
+          <div style="font-size:14px;font-weight:700;color:#1A1A1A;" id="ts-pricedby">&#8212;</div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:#6B6B6B;margin-bottom:3px;">1st Rental Property?</div>
+          <div style="font-size:14px;font-weight:700;color:#1A1A1A;" id="ts-firstRental">&#8212;</div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:#6B6B6B;margin-bottom:3px;">Listed for Sale?</div>
+          <div style="font-size:14px;font-weight:700;color:#1A1A1A;" id="ts-listedSale">&#8212;</div>
         </div>
       </div>
     </div>
@@ -1280,6 +1303,9 @@ function generateTermSheet() {
       if(g2('ts-cc-liquid'))            g2('ts-cc-liquid').textContent = fmt2(reservesAmt + Math.abs(netPosition));
     }
   }
+
+  if(g('ts-firstRental')) g('ts-firstRental').textContent = g('firstRental')&&g('firstRental').value ? g('firstRental').value : 'Not provided';
+  if(g('ts-listedSale')) g('ts-listedSale').textContent = g('listedSale') ? g('listedSale').value : '--';
 
   g('termSheetModal').style.display = 'block';
   document.body.style.overflow = 'hidden';
@@ -1895,6 +1921,8 @@ function copyToEmail() {
   t += '  Foreign National:   ' + (g('fn') ? g('fn').value : '--') + '\n';
   t += '  Credit Event:       ' + (g('creditEvent') ? g('creditEvent').value : '--') + '\n';
   t += '  Experience:         ' + (g('experience') ? g('experience').value : '--') + '\n';
+  t += '  1st Rental:        ' + (g('firstRental')&&g('firstRental').value ? g('firstRental').value : 'Not provided') + '\n';
+  t += '  Listed for Sale:   ' + (g('listedSale') ? g('listedSale').value : '--') + '\n';
   t += '  Seasoning:          ' + (g('seasoning') && g('seasoning').value ? g('seasoning').value : 'Not provided') + '\n';
   t += '  Occupancy:          ' + (g('occupancy') ? g('occupancy').value : '--') + '\n';
   t += '  Status:             ' + (g('outIndicator') ? g('outIndicator').textContent : '--') + '\n\n';
