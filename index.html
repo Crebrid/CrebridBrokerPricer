@@ -1167,7 +1167,7 @@ function generateTermSheet() {
   } else {
     g('ts-estvalue-cell').style.display = 'none';
   }
-  if(g('ts-pricedby')) g('ts-pricedby').textContent = g('pricedBy').value;
+  if(g('ts-pricedby')) g('ts-pricedby').textContent = 'Crebrid, LLC';
   if(g('ts-lender-name')) g('ts-lender-name').textContent = g('brokerCompany') && g('brokerCompany').value ? g('brokerCompany').value : '--';
   if(g('ts-lo-label')) g('ts-lo-label').textContent = 'Broker';
   const bN = g('brokerContactName') && g('brokerContactName').value ? g('brokerContactName').value : '--';
